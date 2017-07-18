@@ -19,20 +19,20 @@ head.sample <- function(x, n = 5){
 }
 
 
-#male litery
+#to lowercase
 small.title <- str_to_lower(frm$title)
 frm$date <- str_to_lower(frm$date)
 small.text <- str_to_lower(frm$text)
 
-#usuniecie polskich znaków
+#remove polish chars
 text.pl <- removePolishChars(small.text)
 title.pl <- removePolishChars(small.title)
 
-#usuniecie wszystkiego co nie jest litera
+#only letters
 text <- cleanText(text.pl)
 title <- cleanText(title.pl)
 
-#stemwords
+#word stemming
 lemmatization <- readRDS("data/lemmatization.rds")
 
 title.stem.list <- str_split(title, " ")
